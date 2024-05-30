@@ -1,8 +1,7 @@
 <template>
     <div class="homepage">
-        <div class="header">
-            <div class="background" />
-        </div>
+        <CircleBackGround />
+
         <HomePageTimers />
         <div class="start-button">
             <button>START</button>
@@ -12,10 +11,12 @@
 
 <script>
 import HomePageTimers from './HomePageTimers.vue';
+import CircleBackGround from './CircleBackGround.vue';
 export default {
     name: 'HomePage',
     components: {
         HomePageTimers,
+        CircleBackGround,
     },
 };
 </script>
@@ -26,14 +27,6 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-}
-
-.background {
-    width: 295px;
-    height: 295px;
-    background-color: white;
-    border-radius: 50%;
-    margin-bottom: 3rem;
 }
 
 .start-button {
