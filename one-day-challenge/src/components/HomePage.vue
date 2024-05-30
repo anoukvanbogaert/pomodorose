@@ -3,18 +3,7 @@
         <div class="header">
             <div class="background" />
         </div>
-        <div class="timers">
-            <div class="timer work-timer">
-                <div class="side-div" />
-                <div class="timer-value">30:00</div>
-                <div class="timer-label work-label side-div">WORK</div>
-            </div>
-            <div class="timer break-timer">
-                <div class="timer-label break-label side-div">BREAK</div>
-                <div class="timer-value">05:00</div>
-                <div class="side-div" />
-            </div>
-        </div>
+        <HomePageTimers />
         <div class="start-button">
             <button>START</button>
         </div>
@@ -22,8 +11,12 @@
 </template>
 
 <script>
+import HomePageTimers from './HomePageTimers.vue';
 export default {
     name: 'HomePage',
+    components: {
+        HomePageTimers,
+    },
 };
 </script>
 
