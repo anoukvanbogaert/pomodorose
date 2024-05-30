@@ -1,9 +1,9 @@
 <template>
     <div class="homepage">
         <CircleBackGround />
-        <HomePageTimers />
+        <HomePageTimers @set-time="setTime" />
         <div class="start-button">
-            <button>START</button>
+            <button @click="start">START</button>
         </div>
     </div>
 </template>
@@ -16,6 +16,31 @@ export default {
     components: {
         HomePageTimers,
         CircleBackGround,
+    },
+    data() {
+        return {
+            workHours: 0,
+            workMinutes: 30,
+            breakHours: 0,
+            breakMinutes: 5,
+        };
+    },
+    methods: {
+        setTime(workHours, workMinutes, breakHours, breakMinutes) {
+            this.workHours = workHours;
+            this.workMinutes = workMinutes;
+            this.breakHours = breakHours;
+            this.breakMinutes = breakMinutes;
+        },
+        start() {
+            this.$emit(
+                'start',
+                this.workHours,
+                this.workMinutes,
+                this.breakHours,
+                this.breakMinutes
+            );
+        },
     },
 };
 </script>

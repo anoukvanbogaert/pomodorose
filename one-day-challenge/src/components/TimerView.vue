@@ -5,8 +5,8 @@
     </div>
     <div class="timer-bottom">
         <div class="formatted-time">{{ formattedTime }}</div>
-        <div class="back-home">
-            <v-icon color="accent" icon="mdi-home" @click="goToHome"></v-icon>
+        <div class="back-home" @click="goToHome">
+            <v-icon color="accent" icon="mdi-home"></v-icon>
             <div class="back-home-text">back to home</div>
         </div>
     </div>
@@ -16,13 +16,23 @@ import CircleBackGround from './CircleBackGround.vue';
 import ProgressCircle from './ProgressCircle.vue';
 
 export default {
+    props: {
+        workTime: {
+            type: Number,
+            required: true,
+        },
+        breakTime: {
+            type: Number,
+            required: true,
+        },
+    },
     components: {
         CircleBackGround,
         ProgressCircle,
     },
     data() {
         return {
-            totalTime: this.getRandomTime(),
+            totalTime: this.workTime,
             initialTime: 0,
         };
     },
@@ -39,9 +49,11 @@ export default {
             const maxSeconds = 900;
             return maxSeconds;
         },
+
         goToHome() {
-            this.$router.push('/');
+            this.$emit('go-home');
         },
+
         startCountdown() {
             this.timerInterval = setInterval(() => {
                 if (this.totalTime > 0) {
@@ -83,6 +95,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .back-home-text {
