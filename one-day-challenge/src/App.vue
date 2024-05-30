@@ -1,16 +1,17 @@
 <template>
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-    <HomePage />
+    <!-- <HomePage /> -->
+    <TimerView />
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue';
-import HomePage from './components/HomePage.vue';
+// import HomePage from './components/HomePage.vue';
+import TimerView from './components/TimerView.vue';
 
 export default {
     name: 'App',
     components: {
-        HomePage,
+        // HomePage,
+        TimerView,
     },
 };
 </script>

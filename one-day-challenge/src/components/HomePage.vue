@@ -1,7 +1,6 @@
 <template>
     <div class="homepage">
         <CircleBackGround />
-
         <HomePageTimers />
         <div class="start-button">
             <button>START</button>
