@@ -14,6 +14,7 @@ const myCustomLightTheme = {
 export default createVuetify({
     theme: {
         defaultTheme: 'myCustomLightTheme',
+        options: { customProperties: true },
         themes: {
             myCustomLightTheme,
         },
