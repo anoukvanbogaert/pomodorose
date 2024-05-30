@@ -36,43 +36,6 @@ export default {
     margin-bottom: 3rem;
 }
 
-.timers {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-}
-.side-div {
-    width: 2.5rem;
-}
-
-.timer {
-    width: 100%;
-    height: 7rem;
-    background: white;
-    border-radius: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 50, 0.25);
-}
-
-.timer-label {
-    color: #66baff;
-    font-size: 1.75rem;
-    font-weight: 800;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-}
-.break-label {
-    transform: rotate(180deg);
-}
-
-.timer-value {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #000;
-}
 .start-button {
     margin-top: 3rem;
     width: 100%;

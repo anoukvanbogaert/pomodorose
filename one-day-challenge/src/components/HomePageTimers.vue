@@ -1,50 +1,60 @@
 <template>
     <div class="timers">
-        <div class="timer work-timer">
-            <div class="side-div" />
-            <div class="timer-box">
-                <div class="hours-box">
-                    <div class="arrow-box">
-                        <v-icon color="primary" icon="mdi-chevron-up" size="x-large"></v-icon>
-                    </div>
-                    <div class="timer-value">00</div>
-                    <div class="arrow-box">
-                        <v-icon color="primary" icon="mdi-chevron-down" size="x-large"></v-icon>
-                    </div>
-                </div>
-                <div class="timer-value">:</div>
-                <div class="minutes-box">
-                    <div class="arrow-box">
-                        <v-icon color="primary" icon="mdi-chevron-up" size="x-large"></v-icon>
-                    </div>
-                    <div class="timer-value">30</div>
-                    <div class="arrow-box">
-                        <v-icon color="primary" icon="mdi-chevron-down" size="x-large"></v-icon>
-                    </div>
-                </div>
-            </div>
-            <div class="timer-label work-label side-div">WORK</div>
-        </div>
-        <div class="timer break-timer">
-            <div class="timer-label break-label side-div">BREAK</div>
-            <div class="timer-value">05:00</div>
-            <div class="side-div" />
-        </div>
+        <HomePageTimerValue
+            :initialHours="workHours"
+            :initialMinutes="workMinutes"
+            label="WORK"
+            @update-hours="updateWorkHours"
+            @update-minutes="updateWorkMinutes"
+        />
+        <HomePageTimerValue
+            :initialHours="breakHours"
+            :initialMinutes="breakMinutes"
+            label="BREAK"
+            @update-hours="updateBreakHours"
+            @update-minutes="updateBreakMinutes"
+        />
     </div>
 </template>
+
 <script>
+import HomePageTimerValue from './HomePageTimerValue.vue';
+
 export default {
     name: 'HomePageTimers',
+    components: {
+        HomePageTimerValue,
+    },
+    data() {
+        return {
+            workHours: 0,
+            workMinutes: 30,
+            breakHours: 0,
+            breakMinutes: 5,
+        };
+    },
+    methods: {
+        updateWorkHours(hours) {
+            this.workHours = hours;
+        },
+        updateWorkMinutes(minutes) {
+            this.workMinutes = minutes;
+        },
+        updateBreakHours(hours) {
+            this.breakHours = hours;
+        },
+        updateBreakMinutes(minutes) {
+            this.breakMinutes = minutes;
+        },
+    },
 };
 </script>
-<style scoped>
-.timer-box {
-    display: flex;
-    align-items: center;
-}
 
-.arrow-box {
-    margin-top: -1rem;
-    margin-bottom: -1rem;
+<style scoped>
+.timers {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
 }
 </style>
