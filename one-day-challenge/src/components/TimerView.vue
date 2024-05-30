@@ -1,7 +1,7 @@
 <template>
     <div class="timer-top">
-        <CircleBackGround />
         <ProgressCircle :totalTime="totalTime" :initialTime="initialTime" />
+        <CircleBackGround />
     </div>
     <div class="timer-bottom">
         <div class="formatted-time">{{ formattedTime }}</div>

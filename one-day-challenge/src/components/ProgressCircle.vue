@@ -42,9 +42,10 @@ export default {
 <style scoped>
 .progress-circle {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 297.5px;
+    height: 297.5px;
 }
 </style>
