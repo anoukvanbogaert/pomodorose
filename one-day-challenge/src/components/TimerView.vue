@@ -79,14 +79,13 @@ export default {
 </script>
 <style scoped>
 .timer-top {
-    height: 60%;
     display: flex;
     align-items: center;
+    padding: 3rem;
 }
 .timer-bottom {
     background-color: white;
-    padding: 0 !important;
-    height: 40%;
+    height: 405px;
 }
 
 .formatted-time {

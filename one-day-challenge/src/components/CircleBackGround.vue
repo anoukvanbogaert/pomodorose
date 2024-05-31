@@ -1,5 +1,5 @@
 <template>
-    <div class="background">
+    <div class="circle">
         <img v-if="isWorkSession" :src="workImage" alt="Hello" class="work-image" />
         <img v-if="!isWorkSession" :src="breakImage" alt="Hello" class="break-image" />
     </div>
@@ -21,7 +21,7 @@ export default {
 };
 </script>
 <style scoped>
-.background {
+.circle {
     width: 295px;
     height: 295px;
     background-color: white;
