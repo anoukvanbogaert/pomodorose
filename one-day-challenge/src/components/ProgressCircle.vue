@@ -31,8 +31,9 @@ export default {
             return 2 * Math.PI * 45;
         },
         strokeDashOffset() {
-            if (this.initialTime === 0) return this.circumference;
-            const progress = 1 - this.initialTime / this.totalTime;
+            if (this.totalTime === 0) return this.circumference;
+
+            const progress = 1 - this.totalTime / this.initialTime;
             return this.circumference * progress;
         },
     },

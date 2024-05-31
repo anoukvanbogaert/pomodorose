@@ -1,7 +1,7 @@
 <template>
     <div class="timer-top">
         <ProgressCircle :totalTime="totalTime" :initialTime="initialTime" />
-        <CircleBackGround />
+        <CircleBackGround :isWorkSession="isWorkSession" />
     </div>
     <div class="timer-bottom">
         <div class="formatted-time">{{ formattedTime }}</div>
@@ -30,10 +30,14 @@ export default {
         CircleBackGround,
         ProgressCircle,
     },
+    emits: ['go-home'],
     data() {
         return {
             totalTime: this.workTime,
-            initialTime: 0,
+            initialTime: this.workTime,
+            isWorkSession: true,
+            workTimeStored: parseInt(localStorage.getItem('workTime'), 10) || this.workTime,
+            breakTimeStored: parseInt(localStorage.getItem('breakTime'), 10) || this.breakTime,
         };
     },
     computed: {
@@ -45,11 +49,6 @@ export default {
         },
     },
     methods: {
-        getRandomTime() {
-            const maxSeconds = 900;
-            return maxSeconds;
-        },
-
         goToHome() {
             this.$emit('go-home');
         },
@@ -58,9 +57,14 @@ export default {
             this.timerInterval = setInterval(() => {
                 if (this.totalTime > 0) {
                     this.totalTime -= 1;
-                    this.initialTime += 1;
                 } else {
-                    clearInterval(this.timerInterval);
+                    if (this.isWorkSession) {
+                        this.totalTime = this.breakTime;
+                    } else {
+                        this.totalTime = this.workTime;
+                    }
+
+                    this.isWorkSession = !this.isWorkSession;
                 }
             }, 1000);
         },

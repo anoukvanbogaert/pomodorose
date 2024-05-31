@@ -31,15 +31,36 @@ export default {
             this.workMinutes = workMinutes;
             this.breakHours = breakHours;
             this.breakMinutes = breakMinutes;
+            localStorage.setItem('workHours', workHours);
+            localStorage.setItem('workMinutes', workMinutes);
+            localStorage.setItem('breakHours', breakHours);
+            localStorage.setItem('breakMinutes', breakMinutes);
         },
         start() {
+            const workHours = localStorage.getItem('workHours') || this.workHours;
+            const workMinutes = localStorage.getItem('workMinutes') || this.workMinutes;
+            const breakHours = localStorage.getItem('breakHours') || this.breakHours;
+            const breakMinutes = localStorage.getItem('breakMinutes') || this.breakMinutes;
+
             this.$emit(
                 'start',
-                this.workHours,
-                this.workMinutes,
-                this.breakHours,
-                this.breakMinutes
+                parseInt(workHours, 10),
+                parseInt(workMinutes, 10),
+                parseInt(breakHours, 10),
+                parseInt(breakMinutes, 10)
             );
+        },
+        updateWorkHours(hours) {
+            this.workHours = hours;
+        },
+        updateWorkMinutes(minutes) {
+            this.workMinutes = minutes;
+        },
+        updateBreakHours(hours) {
+            this.breakHours = hours;
+        },
+        updateBreakMinutes(minutes) {
+            this.breakMinutes = minutes;
         },
     },
 };

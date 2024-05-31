@@ -84,55 +84,35 @@ export default {
     methods: {
         incrementHours() {
             this.hours = (this.hours + 1) % 24;
+            if (this.label === 'WORK') {
+                this.$emit('update-hours', this.hours);
+            } else {
+                this.$emit('update-break-hours', this.hours);
+            }
         },
         decrementHours() {
             this.hours = (this.hours - 1 + 24) % 24;
+            if (this.label === 'WORK') {
+                this.$emit('update-hours', this.hours);
+            } else {
+                this.$emit('update-break-hours', this.hours);
+            }
         },
         incrementMinutes() {
             this.minutes = (this.minutes + 1) % 60;
+            if (this.label === 'WORK') {
+                this.$emit('update-minutes', this.minutes);
+            } else {
+                this.$emit('update-break-minutes', this.minutes);
+            }
         },
         decrementMinutes() {
             this.minutes = (this.minutes - 1 + 60) % 60;
-        },
-        updateWorkHours(hours) {
-            this.workHours = hours;
-            this.$emit(
-                'set-time',
-                this.workHours,
-                this.workMinutes,
-                this.breakHours,
-                this.breakMinutes
-            );
-        },
-        updateWorkMinutes(minutes) {
-            this.workMinutes = minutes;
-            this.$emit(
-                'set-time',
-                this.workHours,
-                this.workMinutes,
-                this.breakHours,
-                this.breakMinutes
-            );
-        },
-        updateBreakHours(hours) {
-            this.breakHours = hours;
-            this.$emit(
-                'set-time',
-                this.workHours,
-                this.workMinutes,
-                this.breakHours,
-                this.breakMinutes
-            );
-        },
-        updateBreakMinutes(minutes) {
-            this.breakMinutes = minutes;
-            this.$emit(
-                'set-time',
-                this.workHours,
-                this.workMinutes,
-                this.breakHours,
-                this.breakMinutes
-            );
+            if (this.label === 'WORK') {
+                this.$emit('update-minutes', this.minutes);
+            } else {
+                this.$emit('update-break-minutes', this.minutes);
+            }
         },
     },
 };

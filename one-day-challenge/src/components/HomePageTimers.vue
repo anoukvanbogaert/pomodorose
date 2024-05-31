@@ -36,15 +36,43 @@ export default {
     methods: {
         updateWorkHours(hours) {
             this.workHours = hours;
+            this.$emit(
+                'set-time',
+                this.workHours,
+                this.workMinutes,
+                this.breakHours,
+                this.breakMinutes
+            );
         },
         updateWorkMinutes(minutes) {
             this.workMinutes = minutes;
+            this.$emit(
+                'set-time',
+                this.workHours,
+                this.workMinutes,
+                this.breakHours,
+                this.breakMinutes
+            );
         },
         updateBreakHours(hours) {
             this.breakHours = hours;
+            this.$emit(
+                'set-time',
+                this.workHours,
+                this.workMinutes,
+                this.breakHours,
+                this.breakMinutes
+            );
         },
         updateBreakMinutes(minutes) {
             this.breakMinutes = minutes;
+            this.$emit(
+                'set-time',
+                this.workHours,
+                this.workMinutes,
+                this.breakHours,
+                this.breakMinutes
+            );
         },
     },
 };
