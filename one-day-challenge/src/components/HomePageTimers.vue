@@ -11,8 +11,8 @@
             :initialHours="breakHours"
             :initialMinutes="breakMinutes"
             label="BREAK"
-            @update-hours="updateBreakHours"
-            @update-minutes="updateBreakMinutes"
+            @update-break-hours="updateBreakHours"
+            @update-break-minutes="updateBreakMinutes"
         />
     </div>
 </template>
