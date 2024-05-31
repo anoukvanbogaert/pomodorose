@@ -4,7 +4,7 @@
             cx="50"
             cy="50"
             r="45"
-            stroke="#FF66BA"
+            :stroke="progressColor"
             stroke-width="5"
             fill="transparent"
             :stroke-dasharray="circumference"
@@ -25,6 +25,10 @@ export default {
             type: Number,
             required: true,
         },
+        isWorkSession: {
+            type: Boolean,
+            required: true,
+        },
     },
     computed: {
         circumference() {
@@ -34,7 +38,11 @@ export default {
             if (this.totalTime === 0) return this.circumference;
 
             const progress = 1 - this.totalTime / this.initialTime;
+
             return this.circumference * progress;
+        },
+        progressColor() {
+            return this.isWorkSession ? '#FF66BA' : '#66BAFF';
         },
     },
 };
@@ -43,7 +51,7 @@ export default {
 <style scoped>
 .progress-circle {
     position: absolute;
-    top: 3rem;
+    top: 147.5px;
     left: 50%;
     transform: translateX(-50%);
     width: 295px;
